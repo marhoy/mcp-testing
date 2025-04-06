@@ -1,0 +1,95 @@
+[project]
+name = "mcp-testing"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [{ name = "Martin Høy", email = "martin@hoy.priv.no" }]
+requires-python = ">=3.13"
+dependencies = [
+    "azure-identity>=1.21.0",
+    "fastapi>=0.115.12",
+    "fastapi-mcp>=0.1.7",
+    "fastmcp>=0.4.1",
+    "langchain-mcp-adapters>=0.0.7",
+    "langchain-openai>=0.3.12",
+    "langgraph>=0.3.25",
+    "loguru>=0.7.3",
+    "uvicorn>=0.34.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+# Consider packages in the src directory as first-party code
+src = ["src"]
+# Run ruff on Notebooks as well
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint.per-file-ignores]
+# Allow the use of assert in tests
+"tests/*" = ["S101"]
+
+[tool.ruff.lint]
+select = [
+    "F",   # Pyflakes
+    "E",   # pycodestyle
+    "W",   # pycodestyle
+    "C90", # mccabe
+    "I",   # isort
+    "ICN", # flake8-import-conventions
+    "N",   # pep8-naming
+    "D",   # pydocstyle
+    "UP",  # pyupgrade
+    "ANN", # flake8-annotations
+    "S",   # flake8-bandit
+    "B",   # flake8-bugbear
+    "A",   # flake8-builtins
+    "C4",  # flake8-comprehensions
+    "DTZ", # flake8-datetimez
+    "FA",  # flake8-future-annotations
+    "ISC", # flake8-implicit-str-concat
+    "ICN", # flake8-import-conventions
+    "PT",  # flake8-pytest-style
+    "Q",   # flake8-quotes
+    "RET", # flake8-return
+    "SIM", # flake8-simplify
+    "TID", # flake8-tidy-imports
+    "ARG", # flake8-unused-arguments
+    "PTH", # flake8-use-pathlib
+    "PD",  # pandas-vet
+    "PLC", # Pylint convention
+    "PLE", # Pylint error
+    # "PLR",  # Pylint refactor
+    "NPY",  # NumPy
+    "FAST", # FastAPI
+    "RUF",  # Ruff-specific rules
+]
+ignore = []
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+# mypy configuration, taken from pydantic documentation
+[tool.mypy]
+plugins = ["pydantic.mypy", "pandera.mypy"]
+
+follow_imports = "silent"
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+check_untyped_defs = true
+no_implicit_reexport = true
+
+disallow_untyped_defs = true
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+]
