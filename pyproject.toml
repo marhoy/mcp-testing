@@ -90,4 +90,7 @@ init_typed = true
 warn_required_dynamic_aliases = true
 
 [dependency-groups]
-dev = ["ipykernel>=6.29.5"]
+dev = [
+    "ipykernel>=6.29.5",
+    "pre-commit>=4.2.0",
+]
