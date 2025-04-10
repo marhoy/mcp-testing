@@ -6,16 +6,16 @@ readme = "README.md"
 authors = [{ name = "Martin Høy", email = "martin@hoy.priv.no" }]
 requires-python = ">=3.13"
 dependencies = [
+    "loguru>=0.7.3",
     "azure-identity>=1.21.0",
-    "fastapi>=0.115.12",
-    "fastapi-mcp>=0.1.7",
-    "fastmcp>=0.4.1",
-    "langchain-mcp-adapters>=0.0.7",
     "langchain-openai>=0.3.12",
     "langgraph>=0.3.25",
-    "loguru>=0.7.3",
-    "uvicorn>=0.34.0",
+    "langchain-mcp-adapters>=0.0.7",
+    "mcp[cli]>=1.6.0",
 ]
+
+[project.scripts]
+mcp-server = "mcp_testing.server.fastmcp:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -90,6 +90,4 @@ init_typed = true
 warn_required_dynamic_aliases = true
 
 [dependency-groups]
-dev = [
-    "ipykernel>=6.29.5",
-]
+dev = ["ipykernel>=6.29.5"]
