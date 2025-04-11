@@ -12,10 +12,14 @@ dependencies = [
     "langgraph>=0.3.25",
     "langchain-mcp-adapters>=0.0.7",
     "mcp[cli]>=1.6.0",
+    "fastapi>=0.115.12",
+    "uvicorn>=0.34.0",
+    "fastapi-mcp>=0.2.0",
 ]
 
 [project.scripts]
 mcp-server = "mcp_testing.server.fastmcp:main"
+api-server = "mcp_testing.server.fastapi:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -90,7 +94,4 @@ init_typed = true
 warn_required_dynamic_aliases = true
 
 [dependency-groups]
-dev = [
-    "ipykernel>=6.29.5",
-    "pre-commit>=4.2.0",
-]
+dev = ["ipykernel>=6.29.5", "pre-commit>=4.2.0"]

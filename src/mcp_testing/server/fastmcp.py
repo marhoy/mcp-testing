@@ -34,6 +34,6 @@ async def next_volcanic_eruption() -> str:
 
 def main() -> None:
     """Run the FastMCP server."""
-    mcp.settings.host = config.SERVER_URL.host or "localhost"
-    mcp.settings.port = config.SERVER_URL.port or 80
+    mcp.settings.host = config.MCP_SERVER_URL.host or "localhost"
+    mcp.settings.port = config.MCP_SERVER_URL.port or 80
     mcp.run(transport="sse")

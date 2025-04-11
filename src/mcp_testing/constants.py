@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     AZURE_LLM_DEPLOYMENT: str = "gpt-4o-mini-2024-07-18"
 
     # FastAPI settings
-    SERVER_URL: HttpUrl = HttpUrl("http://localhost:8543/sse")
+    MCP_SERVER_URL: HttpUrl = HttpUrl("http://localhost:8543/sse")
 
 
 settings = Settings()

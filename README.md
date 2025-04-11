@@ -11,3 +11,9 @@ uv run mcp-server
 ```bash
 mcp dev src/mcp_testing/server/fastmcp.py
 ```
+
+## Start the FastAPI server with MCP support
+
+```bash
+uv run api-server
+```
