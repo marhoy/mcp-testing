@@ -43,11 +43,11 @@ mcp = FastApiMCP(
     # Optional parameters
     name="My API MCP",
     description="My API description",
-    # base_url="http://localhost:8000",
+    base_url=config.SERVER_BASE_URL.unicode_string(),
 )
 
 # Mount the MCP server inside the FastAPI app
-mcp.mount(mount_path="/sse")
+mcp.mount(mount_path=config.MCP_MOUNT_PATH)
 
 
 def main() -> None:
@@ -56,8 +56,8 @@ def main() -> None:
 
     uvicorn.run(
         app,
-        host=config.MCP_SERVER_URL.host or "localhost",
-        port=config.MCP_SERVER_URL.port or 80,
+        host=config.SERVER_BASE_URL.host or "localhost",
+        port=config.SERVER_BASE_URL.port or 8080,
     )
 
 
